@@ -1,0 +1,11 @@
+{
+  "https://canvas.test.instructure.com": {
+    "client_id": "226430000000000280",
+    "auth_login_url": "https://aculeo.test.instructure.com/api/lti/authorize_redirect",
+    "auth_token_url": "https://aculeo.test.instructure.com/login/oauth2/token",
+    "key_set_url": "https://aculeo.test.instructure.com/api/lti/security/jwks",
+    "private_key_file": "private.key",
+    "public_key_file": "public.key",
+    "deployment_ids": ["2218:f70d2962b2fb9f971974d242c838092a33108d7e"]
+  }
+}

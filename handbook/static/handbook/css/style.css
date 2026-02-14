@@ -1,0 +1,174 @@
+/* Main page styling */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Header styling with ACU purple */
+.header {
+    background-color: #512888;  /* ACU Purple */
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin-top: 0;
+}
+
+/* Content area */
+.content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* List styling */
+.content ul {
+    line-height: 1.6;
+}
+/* Assessment section styling */
+.assessment-item {
+    background-color: #f9f9f9;
+    border-left: 4px solid #512888;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+}
+
+.assessment-item h4 {
+    margin-top: 0;
+    color: #512888;
+}
+
+.weighting {
+    font-weight: bold;
+    color: #512888;
+}
+
+/* Graduate capabilities styling */
+.capability-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.capability-item:last-child {
+    border-bottom: none;
+}
+
+.capability-id {
+    display: inline-block;
+    background-color: #512888;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Section headings */
+.content h3 {
+    color: #512888;
+    border-bottom: 2px solid #512888;
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+/* References styling */
+.references {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 0.95em;
+}
+
+/* Jump navigation (table of contents) */
+.jump-nav {
+    background-color: #f5f5f5;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border-left: 4px solid #512888;
+}
+
+.jump-nav h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    border: none;
+}
+
+.jump-nav ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0 0 0;
+}
+
+.jump-nav li {
+    margin: 5px 0;
+}
+
+.jump-nav a {
+    color: #512888;
+    text-decoration: none;
+}
+
+.jump-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Learning outcome boxes - ACU style */
+.learning-outcome-item {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.learning-outcome-item strong {
+    color: #512888;
+}
+
+/* Clean up content lists */
+.content ul {
+    line-height: 1.8;
+}
+
+.content ul li {
+    margin-bottom: 8px;
+}
+
+/* Section anchors for jump links */
+.section-anchor {
+    scroll-margin-top: 20px;
+}
+
+/* Table styling for campus offerings (if you add this later) */
+.campus-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.campus-table th,
+.campus-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.campus-table th {
+    background-color: #512888;
+    color: white;
+    font-weight: bold;
+}
+
+.campus-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

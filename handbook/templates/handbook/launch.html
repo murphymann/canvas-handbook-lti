@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACU Unit handbook</title>
+    <link rel="stylesheet" href="{% static 'handbook/css/style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Unit Handbook</h1>
+        <p>Welcome, {{ user_name }}!</p>
+    </div>
+
+    <div class="jump-nav">
+        <h3>Jump to</h3>
+        <ul>
+            <li><a href="#overview">Unit rationale, description and aim</a></li>
+            <li><a href="#learning-outcomes">Learning outcomes</a></li>
+            <li><a href="#content">Unit content</a></li>
+            <li><a href="#assessments">Assessments</a></li>
+            <li><a href="#teaching-strategy">Teaching strategy</a></li>
+        </ul>
+    </div>
+    
+    {% if handbook %}
+    <div class="content">
+        <!-- Unit Title and Basic Info -->
+        <h2>{{ handbook.code }} - {{ handbook.name }}</h2>
+        <p><strong>Credit Points:</strong> {{ handbook.credit_points }}</p>
+        <p><strong>Year:</strong> {{ handbook.year }}</p>
+        
+        <!-- Unit Description -->
+        <h3 id="overview">Unit Rationale, Description and Aim</h3>
+        <div>{{ handbook.description|safe }}</div>
+        
+        <!-- Prerequisites -->
+        {% if handbook.prerequisites %}
+        <h3>Prerequisites</h3>
+        <div>{{ handbook.prerequisites|safe }}</div>
+        {% endif %}
+        
+        <!-- Teqachig organisation -->
+       {% if handbook.teaching_org %}
+       <p><strong>Teaching Organisation:</strong> {{ handbook.teaching_org }}</p>
+       {% endif %}
+
+        <!-- Learning Outcomes -->
+        <h3 id="learning-outcomes">Learning Outcomes</h3>
+        <p>To successfully complete this unit you will be able to demonstrate you have achieved the learning outcomes (LO) detailed below.</p>
+        <ul>
+        {% for outcome in handbook.learning_outcomes %}
+            <li><strong>{{ outcome.number }}:</strong> {{ outcome.description }}</li>
+        {% endfor %}
+        </ul>
+        
+        <!-- Graduate Capabilities -->
+        {% if handbook.graduate_capabilities %}
+        <h3 id="graduate-capabilities">Graduate Capabilities</h3>
+        <p>Each outcome is informed by a number of graduate capabilities (GC) to ensure your work in this unit is part of a larger goal.</p>
+        {% for capability in handbook.graduate_capabilities %}
+        <div class="capability-item">
+            <span class="capability-id">{{ capability.id }}</span>
+            <strong>{{ capability.name }}</strong>
+            <p>{{ capability.description }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        
+        <!-- Content -->
+        {% if handbook.content %}
+        <h3 id="content">Content</h3>
+        <div>{{ handbook.content|safe }}</div>
+        {% endif %}
+        
+        <!-- Learning and Teaching Strategy -->
+        {% if handbook.learning_strategy %}
+        <h3 id="teaching-strategy">Learning and Teaching Strategy</h3>
+        <div>{{ handbook.learning_strategy|safe }}</div>
+        {% endif %}
+        
+        <!-- Assessment Strategy -->
+        {% if handbook.assessment_strategy %}
+        <h3 id="assessment-strategy">Assessment Strategy and Rationale</h3>
+        <div>{{ handbook.assessment_strategy|safe }}</div>
+        {% endif %}
+        
+        <!-- Assessments -->
+        {% if handbook.assessments %}
+        <h3 id="assessments">Overview of Assessments</h3>
+        {% for assessment in handbook.assessments %}
+        <div class="assessment-item">
+            <h4>Assessment Task {{ forloop.counter }}</h4>
+            <div>{{ assessment.description|safe }}</div>
+            <p class="weighting">Weighting: {{ assessment.weighting|safe }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        
+        <!-- References -->
+        {% if handbook.references %}
+        <h3 id="references">Representative Texts and References</h3>
+        <div class="references">{{ handbook.references|safe }}</div>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="content">
+        <p>❌ Handbook data not found for {{ course_code }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
