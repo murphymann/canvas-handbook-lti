@@ -39,4 +39,4 @@ def get_launch_url(request):
     """
     Get the launch URL for this tool.
     """
-    return 'https://l2dr42zx-8000.aue.devtunnels.ms/handbook/launch/'
+    return 'https://web-production-7b97e.up.railway.app/handbook/launch/'
