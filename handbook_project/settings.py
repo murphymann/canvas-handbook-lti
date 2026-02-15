@@ -151,7 +151,7 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 # Cache configuration (required for LTI state storage)
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
         'LOCATION': 'lti-cache',
     }
 }
