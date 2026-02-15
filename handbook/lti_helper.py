@@ -31,10 +31,10 @@ def get_tool_conf():
     """
     Get the LTI tool configuration.
     Loads keys from environment variables in production,
-    falls back to files in development.
+    creates temp files if needed.
     """
     import os
-    from pylti1p3.registration import Registration
+    import tempfile
     
     config_path = get_lti_config_path()
     
@@ -43,15 +43,25 @@ def get_tool_conf():
     public_key_env = os.environ.get('LTI_PUBLIC_KEY')
     
     if private_key_env and public_key_env:
-        # Production: use environment variables
-        # Load config and manually set keys
-        tool_conf = ToolConfJsonFile(config_path)
-        # Override the file paths with actual key content
-        tool_conf._private_key = private_key_env
-        tool_conf._public_key = public_key_env
-        return tool_conf
+        # Production: create temporary key files from environment variables
+        # Create temp directory if it doesn't exist
+        temp_dir = '/tmp/lti_keys'
+        os.makedirs(temp_dir, exist_ok=True)
+        
+        # Write keys to temp files
+        private_key_path = os.path.join(temp_dir, 'private.key')
+        public_key_path = os.path.join(temp_dir, 'public.key')
+        
+        with open(private_key_path, 'w') as f:
+            f.write(private_key_env)
+        
+        with open(public_key_path, 'w') as f:
+            f.write(public_key_env)
+        
+        # Now load config normally - it will find the temp files
+        return ToolConfJsonFile(config_path)
     else:
-        # Development: use key files
+        # Development: use key files from repo
         return ToolConfJsonFile(config_path)
 
 
