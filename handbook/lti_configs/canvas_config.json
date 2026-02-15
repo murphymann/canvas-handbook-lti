@@ -4,8 +4,8 @@
     "auth_login_url": "https://aculeo.test.instructure.com/api/lti/authorize_redirect",
     "auth_token_url": "https://aculeo.test.instructure.com/login/oauth2/token",
     "key_set_url": "https://aculeo.test.instructure.com/api/lti/security/jwks",
-    "private_key_file": "private.key",
-    "public_key_file": "public.key",
+    "private_key_file": "/tmp/lti_keys/private.key",
+    "public_key_file": "/tmp/lti_keys/public.key",
     "deployment_ids": ["2219:f70d2962b2fb9f971974d242c838092a33108d7e"]
   }
 }
